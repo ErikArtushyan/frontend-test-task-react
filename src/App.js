@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import SliderComponent from './components/SliderComponent';
+import ImageRotator from './components/ImageRotator';
+import FileDownloader from './components/FileDownloader';
 import './App.css';
 
 function App() {
+  const [activeTab, setActiveTab] = useState('slider');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="tabs">
+        <button onClick={() => setActiveTab('slider')}>Slider</button>
+        <button onClick={() => setActiveTab('image')}>Image Rotator</button>
+        <button onClick={() => setActiveTab('download')}>File Downloader</button>
+      </div>
+
+      {activeTab === 'slider' && <SliderComponent />}
+      {activeTab === 'image' && <ImageRotator />}
+      {activeTab === 'download' && <FileDownloader />}
     </div>
   );
 }

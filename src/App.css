@@ -1,38 +1,80 @@
 .App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tabs {
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.slider-container {
+  margin-top: 20px;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.user-card {
+  padding: 20px;
+  text-align: center;
+  background: #f5f5f5;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+.user-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.image-rotator {
+  margin-top: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.image-container {
+  margin-top: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.image-container img {
+  max-width: 100%;
+  max-height: 400px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.file-downloader {
+  margin-top: 20px;
+}
+
+.file-list {
+  margin-top: 20px;
+}
+
+.file-item {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
 }
 
-.App-link {
-  color: #61dafb;
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+progress {
+  width: 200px;
 }
