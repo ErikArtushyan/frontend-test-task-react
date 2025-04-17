@@ -6,16 +6,21 @@ const FileDownloader = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/files')
-      .then(response => {
+    const fetchFiles = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/files');
         setFiles(response.data.map(file => ({
           ...file,
           progress: 0,
           downloaded: false,
           error: null
         })));
-      })
-      .catch(error => console.error('Error fetching files:', error));
+      } catch (error) {
+        console.error('Error fetching files:', error);
+      }
+    };
+
+    fetchFiles();
   }, []);
 
   const downloadFile = async (file) => {
@@ -25,7 +30,7 @@ const FileDownloader = () => {
       ));
 
       const response = await axios({
-        url: `http://localhost:5000${file.url}`,
+        url: file.url,
         method: 'GET',
         responseType: 'blob',
         onDownloadProgress: (progressEvent) => {
